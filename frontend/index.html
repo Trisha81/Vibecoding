@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Second Hand Store · Browse products</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,800;1,9..144,900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <nav class="nav__links" aria-label="Main">
+      <a href="#top" class="is-active">Home</a>
+      <a href="#catalog">Catalog</a>
+      <a href="#deal">Deals</a>
+    </nav>
+    <form class="search" role="search" id="search-form">
+      <input type="search" id="search" placeholder="Search" aria-label="Search products" maxlength="80" autocomplete="off">
+      <button type="submit" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      </button>
+    </form>
+    <div class="cart" aria-live="polite">Cart <span class="cart__count" id="cart-count">0</span></div>
+  </header>
+
+  <div class="layout" id="top">
+    <aside class="sidebar" aria-label="Product filters">
+      <div class="logo" aria-label="The Second Hand Store">
+        <span class="logo__the">The</span>
+        <span class="logo__main">Second<br>Hand</span>
+        <span class="logo__store">Store</span>
+      </div>
+
+      <div class="sidebar__head">
+        <h2>Filters</h2>
+        <button type="button" id="clear-all" class="link-btn" hidden>Clear all</button>
+      </div>
+      <p class="shop-by">Shop by</p>
+
+      <details class="filter" open>
+        <summary><span>Category</span><i aria-hidden="true"></i></summary>
+        <div id="category-list" class="checklist"></div>
+      </details>
+
+      <details class="filter" open>
+        <summary><span>Price</span><i aria-hidden="true"></i></summary>
+        <div class="price" id="price-filter">
+          <div class="price__hist" id="price-hist" aria-hidden="true"></div>
+          <div class="price__slider">
+            <div class="price__track"><div class="price__fill" id="price-fill"></div></div>
+            <input type="range" id="price-min" aria-label="Minimum price">
+            <input type="range" id="price-max" aria-label="Maximum price">
+          </div>
+          <div class="price__values">
+            <output id="price-min-out" for="price-min"></output>
+            <output id="price-max-out" for="price-max"></output>
+          </div>
+        </div>
+      </details>
+
+      <details class="filter" open>
+        <summary><span>Minimum rating</span><i aria-hidden="true"></i></summary>
+        <div id="rating-list" class="ratings"></div>
+      </details>
+    </aside>
+
+    <main class="main" id="catalog">
+      <section id="deal" class="deal" hidden></section>
+
+      <div class="catalog__bar">
+        <p id="result-count" class="result-count" aria-live="polite">Loading products…</p>
+        <label class="sort">
+          <span>Sort by</span>
+          <select id="sort"></select>
+        </label>
+      </div>
+
+      <div id="grid" class="grid" aria-busy="true"></div>
+
+      <section id="empty" class="empty" hidden>
+        <h2>No items match your criteria.</h2>
+        <p>Try widening the price range or lowering the rating.</p>
+        <button type="button" id="reset-filters" class="btn">Reset filters</button>
+      </section>
+
+      <section id="error" class="empty" hidden>
+        <h2>Couldn’t load products.</h2>
+        <p id="error-text">Check that the server is running, then try again.</p>
+        <button type="button" id="retry" class="btn">Try again</button>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
