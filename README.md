@@ -1,4 +1,4 @@
-# The Second Hand Store – Product Multi-Filter Sidebar
+# Vibecoding: The Second Hand Store – Product Multi-Filter Sidebar
 
 E-commerce browsing page with a sticky sidebar (category checklist, dual-thumb price slider,
 minimum-star radios) and a product grid that updates instantly. A **Sort by** dropdown reorders
